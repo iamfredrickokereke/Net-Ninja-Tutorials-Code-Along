@@ -22,6 +22,8 @@ describe('***saving records***'.yellow, () => {
 
     it('find a record', (done) => {
 
-       marioChar.findOne({ name : 'mario'})
+       marioChar.findOne({ name : 'mario'}).then(function () {
+           done()
+       })
     })
 })
