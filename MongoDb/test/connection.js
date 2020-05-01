@@ -13,4 +13,7 @@
 
  mongoose.connection.once('open', () => { 
      console.log(`Connection has been made now Rejoice!`.rainbow);
+ }).on('error', (error) => {
+     console.log(`oops, something went wrong`.red, error);
+     
  })
