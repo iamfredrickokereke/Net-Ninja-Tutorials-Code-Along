@@ -29,4 +29,10 @@ before((done) => {
 })
 })
 
+//Drop all character collections before any test is done
+beforeEach( (done) => {
 
+    // drop the pluralised collection
+
+    mongoose.connection.collections.mariochars.drop( () => { done() })
+})
