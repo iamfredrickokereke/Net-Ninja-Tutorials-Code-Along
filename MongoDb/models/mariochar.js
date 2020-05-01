@@ -18,6 +18,6 @@ mariocharSchema({
 const marioChar = mongoose.model('mariochar', mariocharSchema)
 
 
-//export the 
+//export the model
 module.exports = marioChar;
 
