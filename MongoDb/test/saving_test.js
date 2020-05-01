@@ -4,8 +4,9 @@ const assert = require('assert');
 
 const marioChar = require('../models/mariochar');
 
+const colors = require('colors')
 
-describe('saving records', () => {
+describe('***saving records***'.yellow, () => {
 
     it('saves a record to db', (done) => {
 

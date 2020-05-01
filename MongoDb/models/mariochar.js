@@ -5,9 +5,7 @@ const Schema = mongoose.Schema;
 
 // creating the schema for the model
 
-const mariocharSchema = new Schema;
-
-mariocharSchema({
+const mariocharSchema = new Schema({
     name : String,
     weight: Number
 })

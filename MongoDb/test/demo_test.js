@@ -1,13 +1,13 @@
-const mocha = require('mocha');
+// const mocha = require('mocha');
 
-const assert = require('assert');
+// const assert = require('assert');
 
 
-// describe the test
+// // describe the test
 
-describe('Some demo test', () => {
+// describe('Some demo test', () => {
 
-    it('Adds 2 numbers', () => {
-        assert( 2 + 2 === 4);
-    })
-});
+//     it('Adds 2 numbers', () => {
+//         assert( 2 + 2 === 4);
+//     })
+// });
