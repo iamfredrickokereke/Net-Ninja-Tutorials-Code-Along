@@ -15,7 +15,13 @@ router.get('/subjects', (request, response) => {
 
 router.post('/subjects', (request, response) => {
 
-    response.send({type: 'POST'})
+    response.send({
+        type: 'POST',
+        name: request.body.name,
+        description: request.body.description,
+        homepage: request.body.homepage
+    
+    })
 })       
 
 
