@@ -21,8 +21,12 @@ mongoose.connect('mongodb://localhost/ninjas', { useUnifiedTopology: true ,useNe
 
 mongoose.Promise = global.Promise;
 
-// use body parser and return json objects
+// use body parser and return json objects  - first middle ware
 app.use(bodyParser.json())
 app.use('/api', require('./routes/api'))
 
+
+app.use(function (err, request, response, next) {
+    response.status(422).send({error: err.message})
+})
 app.listen(process.env.PORT  || 8000, () => console.log('server is running...'))
