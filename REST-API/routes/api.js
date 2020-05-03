@@ -22,7 +22,7 @@ router.post('/ninjas', (request, response) => {
     //  mathninja.save();
 
     Ninja.create(request.body).then((ninja) => {
-        response.send(ninja)
+        response.send(ninja);
 
         console.log('data saved');
         
