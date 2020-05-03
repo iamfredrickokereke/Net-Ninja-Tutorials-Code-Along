@@ -5,7 +5,13 @@ const app = express();
 
 //connect to mongodb
 
-mongoose.connect('mongodb://localhost/subjects', {useUnifiedTopology: true});
+mongoose.connect('mongodb://localhost/ninjas', { useUnifiedTopology: true ,useNewUrlParser: true }).then(() => {
+    console.log('mongoDB is connected...')
+    })
+    .catch((err) => {
+    throw err
+    })
+    
 
 // , (err) => { throw err}
 
