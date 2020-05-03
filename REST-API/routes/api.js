@@ -54,16 +54,3 @@ module.exports = router;
 
 
 
-// router = {
-//     'GET': {
-//         '/':(request, response) => {
-//             response.send({type: 'GET'})
-//         }
-//     },
-
-//     'POST': {
-//         '/ninjas': (request, response) => {
-//             response.send({type : 'POST'})
-//         }
-//     }
-// }
