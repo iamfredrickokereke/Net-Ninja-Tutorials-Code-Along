@@ -2,6 +2,8 @@ const express = require('express');
 
 const router = express.Router();
 
+const subject = require('../models/subjects')
+
 
 //get a list of subjects
 
@@ -14,6 +16,10 @@ router.get('/subjects', (request, response) => {
 // add a new subject to the category
 
 router.post('/subjects', (request, response) => {
+
+     var mathsubject = new subject(request.body);
+
+     mathsubject.save().then((err) =>{ throw 'not saved..............'})
 
     response.send({
         type: 'POST',
