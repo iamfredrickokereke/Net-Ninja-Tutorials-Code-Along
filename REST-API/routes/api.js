@@ -42,6 +42,11 @@ router.put('/ninjas/:id', (request, response, next) => {
 
 router.delete('/ninjas/:id', (request, response, next) => {
 
+
+    //console.log(request.params.id);
+
+    Ninja.findById({_id : request.params.id})
+    
     response.send({type: 'DELETE'})
 })       
 
