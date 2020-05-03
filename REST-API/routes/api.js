@@ -17,9 +17,16 @@ router.get('/subjects', (request, response) => {
 
 router.post('/subjects', (request, response) => {
 
-     var mathsubject = new subject(request.body);
+    //  var mathsubject = new subject(request.body);
 
-     mathsubject.save().then((err) =>{ throw 'not saved..............'})
+    //  mathsubject.save();
+
+    subject.create(request.body).then((subject) => {
+        response.send(subject)
+
+        console.log('data saved');
+        
+    })
 
     response.send({
         type: 'POST',

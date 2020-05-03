@@ -5,7 +5,11 @@ const app = express();
 
 //connect to mongodb
 
-mongoose.connect('mongodb://localhost/subjects');
+mongoose.connect('mongodb://localhost/subjects', {useUnifiedTopology: true});
+
+// , (err) => { throw err}
+
+
 
 mongoose.Promise = global.Promise;
 // const routes = require('./routes/api')
