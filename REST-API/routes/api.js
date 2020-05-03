@@ -2,51 +2,45 @@ const express = require('express');
 
 const router = express.Router();
 
-const subject = require('../models/subjects')
+const Ninja = require('../models/ninjas')
 
 
-//get a list of subjects
+//get a list of ninjas
 
 
-router.get('/subjects', (request, response) => {
+router.get('/ninjas', (request, response) => {
 
     response.send({type: 'GET'})
 })   
 
-// add a new subject to the category
+// add a new ninja to the category
 
-router.post('/subjects', (request, response) => {
+router.post('/ninjas', (request, response) => {
 
-    //  var mathsubject = new subject(request.body);
+    //  var mathninja = new ninja(request.body);
 
-    //  mathsubject.save();
+    //  mathninja.save();
 
-    subject.create(request.body).then((subject) => {
-        response.send(subject)
+    Ninja.create(request.body).then((ninja) => {
+        response.send(ninja)
 
         console.log('data saved');
         
     })
 
-    response.send({
-        type: 'POST',
-        name: request.body.name,
-        description: request.body.description,
-        homepage: request.body.homepage
     
-    })
 })       
 
 
-// update a subject from the category
-router.put('/subjects/:id', (request, response) => {
+// update a ninja from the category
+router.put('/ninjas/:id', (request, response) => {
 
     response.send({type: 'PUT'})
 })       
 
-// delete a subject from the category
+// delete a ninja from the category
 
-router.delete('/subjects/:id', (request, response) => {
+router.delete('/ninjas/:id', (request, response) => {
 
     response.send({type: 'DELETE'})
 })       
@@ -68,7 +62,7 @@ module.exports = router;
 //     },
 
 //     'POST': {
-//         '/subjects': (request, response) => {
+//         '/ninjas': (request, response) => {
 //             response.send({type : 'POST'})
 //         }
 //     }
