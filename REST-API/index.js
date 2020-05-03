@@ -5,7 +5,9 @@ const app = express();
 
 //connect to mongodb
 
-mongoose.connect('mongodb://localhost/subjects')
+mongoose.connect('mongodb://localhost/subjects');
+
+mongoose.Promise = global.Promise;
 // const routes = require('./routes/api')
 
 // use body parser and return json objects
