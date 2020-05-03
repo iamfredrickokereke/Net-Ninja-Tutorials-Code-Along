@@ -5,10 +5,12 @@ const app = express();
 
 //connect to mongodb
 
-mongoose.connect('mongodb://localhost/ninjas', { useUnifiedTopology: true ,useNewUrlParser: true }).then(() => {
+mongoose.connect('mongodb://localhost/ninjas', { useUnifiedTopology: true ,useNewUrlParser: true })
+
+        .then(() => {
     console.log('mongoDB is connected...')
     })
-    .catch((err) => {
+        .catch((err) => {
     throw err
     })
     
