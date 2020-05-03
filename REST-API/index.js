@@ -1,9 +1,11 @@
 const express = require('express');
 const bodyParser = require('body-parser');
 const mongoose = require('mongoose');
-
 const app = express();
 
+//connect to mongodb
+
+mongoose.connect('mongodb://localhost/subjects')
 // const routes = require('./routes/api')
 
 // use body parser and return json objects
