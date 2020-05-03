@@ -45,11 +45,14 @@ router.delete('/ninjas/:id', (request, response, next) => {
 
     //console.log(request.params.id);
 
-    Ninja.findById({_id : request.params.id}).then((ninja) => {
-        response.send({ninja: 'Data deleted successfully'})
-    })
+    Ninja.findByIdAndRemove({_id: request.params.id}).then((ninja) => {
+        response.send(ninja);
+        console.log('ninja successfully deleted');
+    });
+        
+    // }).catch((err) => {response.send(err)})
     
-    response.send({type: 'DELETE'})
+    // response.send({type: 'DELETE'})
 })       
 
 
