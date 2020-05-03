@@ -12,7 +12,6 @@ mongoose.connect('mongodb://localhost/subjects', {useUnifiedTopology: true});
 
 
 mongoose.Promise = global.Promise;
-// const routes = require('./routes/api')
 
 // use body parser and return json objects
 app.use(bodyParser.json())
