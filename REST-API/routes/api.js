@@ -36,7 +36,7 @@ router.post('/ninjas', (request, response, next) => {
 router.put('/ninjas/:id', (request, response, next) => {
 
     Ninja.findByIdAndUpdate({_id: request.params.id}, request.body).then(() => {
-        Ninja.findByOne({_id: request.params.id}).then((ninja) => {
+        Ninja.findOne({_id: request.params.id}).then((ninja) => {
             response.send(ninja)
         })
     })
