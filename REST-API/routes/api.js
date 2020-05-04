@@ -38,9 +38,11 @@ router.put('/ninjas/:id', (request, response, next) => {
     Ninja.findByIdAndUpdate({_id: request.params.id}, request.body).then(() => {
         Ninja.findOne({_id: request.params.id}).then((ninja) => {
             response.send(ninja)
+            console.log('ninja updated successfully');
+            
         })
     })
-    response.send({type: 'PUT'})
+    
 })       
 
 // delete a ninja from the category
