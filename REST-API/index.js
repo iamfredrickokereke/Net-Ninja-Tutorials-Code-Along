@@ -21,6 +21,8 @@ mongoose.connect('mongodb://localhost/ninjas', { useUnifiedTopology: true, useNe
 
 mongoose.Promise = global.Promise;
 
+
+app.use(express.static('public'))
 // use body parser and return json objects  - first middle ware
 app.use(bodyParser.json())
 app.use('/api', require('./routes/api'))
