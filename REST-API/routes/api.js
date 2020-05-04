@@ -35,6 +35,11 @@ router.post('/ninjas', (request, response, next) => {
 // update a ninja from the category
 router.put('/ninjas/:id', (request, response, next) => {
 
+    Ninja.findByIdAndUpdate({_id: request.params.id}, request.body).then(() => {
+        Ninja.findByOne({_id}).then((ninja) => {
+            response.send(ninja)
+        })
+    })
     response.send({type: 'PUT'})
 })       
 
