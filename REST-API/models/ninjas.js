@@ -4,6 +4,22 @@ const mongoose = require('mongoose');
 
 const Schema = mongoose.Schema;
 
+// create the geolocation schema
+
+const GeoSchema = new Schema({
+    type:{
+        type: String,
+        default: "Point" 
+    },
+
+    coordinates:{
+        type: [Number],
+        index: "2Dsphere"
+    }
+});
+
+
+
 
 const NinjaSchema = new Schema({
    
@@ -21,7 +37,9 @@ const NinjaSchema = new Schema({
     available: {
         type: Boolean,
         default: false
-    }
+    },
+
+    geometry: GeoSchema
 
 
 })
