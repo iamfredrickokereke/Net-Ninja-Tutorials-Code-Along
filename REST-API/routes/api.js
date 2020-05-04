@@ -13,13 +13,36 @@ router.get('/ninjas', (request, response, next) => {
     /* Ninja.find({}).then(function(ninjas){
         res.send(ninjas);
     }); */
-    Ninja.geoNear(
-        {type: 'Point', coordinates: [parseFloat(req.query.lng), parseFloat(req.query.lat)]},
-        {maxDistance: 100000, spherical: true}
-    ).then(function(ninjas){
-        res.send(ninjas);
-    }).catch(next);
-    
+    // Ninja.geoNear(
+    //     {type: 'Point', coordinates: [parseFloat(request.query.lng), parseFloat(request.query.lat)]},
+    //     {maxDistance: 100000, spherical: true}
+    // ).then(function(ninja){
+    //     response.send(ninja);
+    // }).catch(next);
+
+    Ninja.aggregate()
+  .near({
+    near: {
+      type: "Point",
+      coordinates: [parseFloat(request.query.lng), parseFloat(request.query.lat)]
+    },
+    maxDistance: 300000, // 300 KM
+    spherical: true,
+    distanceField: "distance"
+  })
+  .then(ninjas => {
+    console.log(ninjas);
+    if (ninjas) {
+      if (ninjas.length === 0)
+        return response.send({
+          message:
+            "maxDistance is too small, or your query params {lng, lat} are incorrect (too big or too small)."
+        });
+      return response.send(ninjas);
+    }
+  })
+  .catch(next);
+
 })   
 
 // add a new ninja to the category
