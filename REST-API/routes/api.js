@@ -10,7 +10,16 @@ const Ninja = require('../models/ninjas')
 
 router.get('/ninjas', (request, response, next) => {
 
-    response.send({type: 'GET'})
+    /* Ninja.find({}).then(function(ninjas){
+        res.send(ninjas);
+    }); */
+    Ninja.geoNear(
+        {type: 'Point', coordinates: [parseFloat(req.query.lng), parseFloat(req.query.lat)]},
+        {maxDistance: 100000, spherical: true}
+    ).then(function(ninjas){
+        res.send(ninjas);
+    }).catch(next);
+    
 })   
 
 // add a new ninja to the category
